@@ -35,9 +35,11 @@ func _input(event: InputEvent) -> void:
 			KEY_BACKSPACE:
 				if (input_buffer.length() > 0):
 					input_buffer = input_buffer.substr(0, input_buffer.length() - 1)
+					validate_input_buffer()
 				return
 			KEY_ESCAPE:
 				input_buffer = ""
+				validate_input_buffer()
 				return
 		
 		if event.unicode > 0:

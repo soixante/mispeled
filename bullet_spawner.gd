@@ -1,14 +1,15 @@
 extends Node2D
 
-@export var initial_vector: Vector2 = Vector2(1,0)
+@export var initial_vector: Vector2 = Vector2(0, 1)
 @export var rotation_step: int = 5
 @export var channeling:int = 5
-@export var cooldown:int = 5
+@export var cooldown:int = 2
 @export var cadence: float = 1.0
 @export var bullet_count: int  = 1
 @export var bullet_arc: int = 0
 @export var bullet_node: PackedScene
 @export var update_on_cadence: bool = true
+@export var aim_at_player: bool = false
 
 var tick := 0.0
 var second_tick := 0.0
@@ -29,6 +30,7 @@ var on_cooldown = false
 func _ready():
 	add_to_group('spawners')
 	set_arc_vectors()
+	current_cooldown = cooldown
 	pass
 
 func _process(delta: float) -> void:
@@ -71,8 +73,11 @@ func _on_cadence_activity() -> void:
 		spawn_bullets()
 
 func update_spawner():
-	current_vector = initial_vector.rotated(current_rot)
-	current_rot += rotation_step * PI / 180.0
+	if aim_at_player:		
+		pass
+	else:
+		current_vector = initial_vector.rotated(current_rot)
+		current_rot += rotation_step * PI / 180.0
 	
 func spawn_bullets():
 	for i in bullet_count:

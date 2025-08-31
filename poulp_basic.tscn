@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bp3nb8qu1jr8n"]
+
+[ext_resource type="PackedScene" uid="uid://q45ru3rngmt7" path="res://target.tscn" id="1_kcajl"]
+
+[node name="poulp_basic" instance=ExtResource("1_kcajl")]
+
+[node name="bullet_spawner" parent="." index="1"]
+channeling = 2
+cooldown = 2
+cadence = 4.0
+bullet_count = 1
+update_on_cadence = false
