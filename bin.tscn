@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dvcg4b416rb3g"]
+
+[ext_resource type="Script" uid="uid://bxr8v8uegeykg" path="res://bin.gd" id="1_vg1ep"]
+[ext_resource type="Texture2D" uid="uid://ci0y2v2meah8n" path="res://resources/sprites/bin.png" id="2_vg1ep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vg1ep"]
+size = Vector2(20, 24)
+
+[node name="bin" type="Node2D" groups=["walls"]]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("1_vg1ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 1
+shape = SubResource("RectangleShape2D_vg1ep")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("2_vg1ep")
