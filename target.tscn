@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://q45ru3rngmt7"]
+
+[ext_resource type="Texture2D" uid="uid://1i5thfvy1iy3" path="res://resources/sprites/target.png" id="1_t2jmu"]
+[ext_resource type="Script" uid="uid://y7djoobueuej" path="res://target.gd" id="1_ufrq1"]
+[ext_resource type="PackedScene" uid="uid://d1pphnpnys656" path="res://bullet_spawner.tscn" id="3_5ebp1"]
+[ext_resource type="FontFile" uid="uid://bsw12653drx2d" path="res://resources/fonts/kongtext.ttf" id="4_uqips"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e1yvt"]
+radius = 8.0
+
+[sub_resource type="Theme" id="Theme_ufrq1"]
+default_font = ExtResource("4_uqips")
+
+[node name="target" type="Node2D"]
+script = ExtResource("1_ufrq1")
+sentence = "Allau"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+z_index = 1
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_e1yvt")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+z_index = 1
+texture = ExtResource("1_t2jmu")
+
+[node name="bullet_spawner" parent="." instance=ExtResource("3_5ebp1")]
+cooldown = 1
+cadence = 10.0
+bullet_count = 15
+bullet_arc = 180
+
+[node name="sentence" type="RichTextLabel" parent="."]
+z_index = 2
+offset_left = -137.0
+offset_top = -67.0
+offset_right = 148.0
+offset_bottom = -15.0
+theme = SubResource("Theme_ufrq1")
+theme_override_constants/outline_size = 4
+bbcode_enabled = true
+text = "sample text with long lines and àccénts"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 2
