@@ -2,6 +2,8 @@ extends Node2D
 
 const ESC_HOLD_THRESHOLD = 2
 
+@onready var player := $player
+
 var input_buffer: String = ""
 var esc_hold_time: float = 0.0
 
@@ -11,6 +13,10 @@ func _ready() -> void:
 	SignalsHandler.target_sentence_typed.connect(_on_target_sentence_typed)
 
 func _process(delta: float) -> void:
+	for target in get_tree().get_nodes_in_group("aiming_targets"):
+		print(player.global_position)
+		target.set_player_position(player.body_position)
+		
 	if Input.is_key_pressed(KEY_ESCAPE):
 		esc_hold_time += delta
 		if esc_hold_time >= ESC_HOLD_THRESHOLD:

@@ -9,7 +9,8 @@ extends Node2D
 @export var bullet_arc: int = 0
 @export var bullet_node: PackedScene
 @export var update_on_cadence: bool = true
-@export var aim_at_player: bool = false
+@export var targetted: bool = false
+@export var target_position: Vector2
 
 var tick := 0.0
 var second_tick := 0.0
@@ -73,7 +74,8 @@ func _on_cadence_activity() -> void:
 		spawn_bullets()
 
 func update_spawner():
-	if aim_at_player:		
+	if targetted:
+		current_vector = (target_position - global_position).normalized()
 		pass
 	else:
 		current_vector = initial_vector.rotated(current_rot)

@@ -11,3 +11,4 @@ channeling = 4
 cadence = 9.0
 bullet_count = 30
 bullet_arc = 270
+targetted = false
