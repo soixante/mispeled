@@ -1,9 +1,11 @@
 extends Node2D
 
+class_name TargetScene
+
 @export var sentence := ""
 
 @onready var Sentence := $sentence
-@onready var BulletSpawner := $bullet_spawner
+@onready var BulletSpawner := $BulletSpawner
 
 var player_position: Vector2
 
@@ -14,7 +16,7 @@ func _ready() -> void:
 	Sentence.text = sentence
 	
 func _process(delta: float) -> void:
-	if BulletSpawner.targetted:
+	if BulletSpawner and BulletSpawner.targetted:
 		BulletSpawner.target_position = player_position
 
 func set_player_position(pos: Vector2) -> void:
