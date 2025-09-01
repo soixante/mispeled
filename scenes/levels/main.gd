@@ -2,7 +2,7 @@ extends Node2D
 
 const ESC_HOLD_THRESHOLD = 2
 
-@onready var player := $player
+@onready var player:= $player
 
 var input_buffer: String = ""
 var esc_hold_time: float = 0.0

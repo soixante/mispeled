@@ -12,6 +12,7 @@ extends Node2D
 @export var targetted: bool = false
 @export var target_position: Vector2
 
+var active:= false
 var tick := 0.0
 var second_tick := 0.0
 var cadence_tick := 0.0
@@ -35,6 +36,9 @@ func _ready():
 	pass
 
 func _process(delta: float) -> void:
+	if !active:
+		return
+
 	tick += delta
 	second_tick += delta
 	cadence_tick += delta

@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalsHandler="*res://signals_handler.tscn"
+SignalsHandler="*res://scenes/tools/signals_handler.tscn"
+BulletSpawnerFactory="*res://services/BulletSpawnerFactory.gd"
 
 [editor_plugins]
 
