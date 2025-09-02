@@ -3,9 +3,8 @@ extends Node
 
 var BulletSpawnerScene := preload("res://scenes/tools/bullet_spawner.tscn")
 
-func create_spawner(parent: TargetScene, position: Vector2, config: Dictionary = {}):
+func create_spawner(target: TargetScene, position: Vector2, config: Dictionary = {}):
 	var spawner = BulletSpawnerScene.instantiate()
-	parent.add_child(spawner)
 	spawner.global_position = position
 	
 	for key in config.keys():
@@ -15,4 +14,6 @@ func create_spawner(parent: TargetScene, position: Vector2, config: Dictionary =
 			push_warning("BulletSpawner has no property named '%s'" % key)
 	
 	spawner.set_arc_vectors()		
+	
+	target.add_bullet_spawner(spawner)
 	return spawner

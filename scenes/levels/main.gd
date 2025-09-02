@@ -12,7 +12,7 @@ func _ready() -> void:
 	SignalsHandler.player_hit.connect(_on_player_hit)
 	SignalsHandler.wall_hit.connect(_on_wall_hit)
 	SignalsHandler.target_sentence_typed.connect(_on_target_sentence_typed)
-	target.BulletSpawner.queue_free()
+	
 	BulletSpawnerFactory.create_spawner(target, Vector2(2,2), {"bullet_count": 12 })
 
 func _process(delta: float) -> void:

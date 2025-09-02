@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://q45ru3rngmt7"]
+[gd_scene load_steps=6 format=3 uid="uid://q45ru3rngmt7"]
 
 [ext_resource type="Texture2D" uid="uid://1i5thfvy1iy3" path="res://resources/sprites/targets/target.png" id="1_t2jmu"]
 [ext_resource type="Script" uid="uid://y7djoobueuej" path="res://scenes/targets/target.gd" id="1_ufrq1"]
-[ext_resource type="PackedScene" uid="uid://d1pphnpnys656" path="res://scenes/tools/bullet_spawner.tscn" id="3_5ebp1"]
 [ext_resource type="FontFile" uid="uid://bsw12653drx2d" path="res://resources/fonts/kongtext.ttf" id="4_uqips"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e1yvt"]
@@ -40,5 +39,3 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 2
-
-[node name="BulletSpawner" parent="." instance=ExtResource("3_5ebp1")]
