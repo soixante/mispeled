@@ -24,12 +24,7 @@ func remove_bullet_spawner(bullet_spawner: BulletSpawner) -> int:
 	return BulletSpawners.size()
 
 func _process(delta: float) -> void:
-	for bs in BulletSpawners:
-		if bs.targetted:
-			bs.target_position = player_position
-
-func set_player_position(pos: Vector2) -> void:
-	player_position = pos
+	pass
 	
 func destroy()-> void:
 	queue_free()
