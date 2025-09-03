@@ -14,6 +14,7 @@ func _ready() -> void:
 	SignalsHandler.target_sentence_typed.connect(_on_target_sentence_typed)
 	
 	BulletSpawnerFactory.create_spawner(target, Vector2.ZERO, {})
+	BulletSpawnerFactory.create_spawner(target, Vector2.ZERO, {'targetted': true})
 
 func _process(delta: float) -> void:
 	for spawners in get_tree().get_nodes_in_group("aimed_spawners"):
