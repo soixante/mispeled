@@ -2,7 +2,7 @@ extends Node2D
 class_name BulletSpawner
 
 @export var initial_vector: Vector2 = Vector2(0, 1)
-@export var rotation_step: int = 5
+@export var rotation_step: int = 10
 @export var channeling:int = 5
 @export var cooldown:int = 2
 @export var cadence: float = 1.0
@@ -33,7 +33,6 @@ var on_cooldown = false
 func _ready():
 	add_to_group('spawners')
 	current_cooldown = cooldown
-	pass
 
 func _process(delta: float) -> void:
 	if !active:
@@ -94,7 +93,6 @@ func spawn_bullets():
 		get_tree().current_scene.add_child(bullet)
 
 func set_arc_vectors():
-	print("bullet-count", bullet_count)
 	if bullet_count == 1:
 		arc_vectors.append(0)
 	else:

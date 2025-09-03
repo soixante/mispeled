@@ -12,26 +12,15 @@ var BulletSpawners: Array[BulletSpawner] = []
 func _ready() -> void:
 	add_to_group('targets')
 	Sentence.text = sentence
-
-func set_aiming_targets_group():
-	for bs in BulletSpawners:
-		if bs.targetted:
-			add_to_group('aiming_targets')
-			return
-	
-	remove_from_group('aiming_targets')
-
 	
 func add_bullet_spawner(bullet_spawner: BulletSpawner) -> int:
 	BulletSpawners.push_back(bullet_spawner)
 	add_child(bullet_spawner)
-	set_aiming_targets_group()
 	return BulletSpawners.size()
 	
 func remove_bullet_spawner(bullet_spawner: BulletSpawner) -> int:
 	BulletSpawners.erase(bullet_spawner)
 	remove_child(bullet_spawner)
-	set_aiming_targets_group()
 	return BulletSpawners.size()
 
 func _process(delta: float) -> void:
