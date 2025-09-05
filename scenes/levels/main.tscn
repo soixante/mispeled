@@ -9,13 +9,13 @@
 script = ExtResource("1_1bvp3")
 
 [node name="Player" parent="." instance=ExtResource("2_y0acb")]
-position = Vector2(256, 285)
-scale = Vector2(2, 2)
+position = Vector2(582, 523)
+scale = Vector2(2.5, 2.5)
 
 [node name="Target" parent="." instance=ExtResource("3_j4d2a")]
 position = Vector2(572, 161)
 scale = Vector2(2, 2)
 
 [node name="hp" parent="." instance=ExtResource("4_j4d2a")]
-position = Vector2(58, 91)
+position = Vector2(83, 593)
 scale = Vector2(3, 3)

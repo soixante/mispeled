@@ -4,7 +4,6 @@ extends Node
 var BulletSpawnerScene := preload("res://scenes/tools/bullet_spawner.tscn")
 const DEFAULT_CONFIG: Dictionary = {
 	'initial_vector':  Vector2(0, 1),
-	'ougag': 10,
 	'channeling': 5,
 	'cooldown': 2,
  	'cadence': 1.0,
@@ -28,6 +27,8 @@ func create_spawner(target: TargetScene, position: Vector2, config: Dictionary =
 			if !key in config.keys():
 				spawner.set(key, DEFAULT_CONFIG[key])
 	
-	spawner.set_arc_vectors()		
+	spawner.set_arc_vectors()
+	if spawner.targetted:
+		spawner.add_to_group('aimed_spawners')
 	target.add_bullet_spawner(spawner)
 	return spawner

@@ -76,10 +76,12 @@ func _on_cadence_activity() -> void:
 			update_spawner()
 		spawn_bullets()
 
+func set_target_position(pos: Vector2) -> void:
+	target_position = pos
+	
 func update_spawner():
 	if targetted:
-		current_vector = (target_position - global_position).normalized()
-		pass
+		current_vector = (target_position - get_parent().global_position).normalized()
 	else:
 		current_vector = initial_vector.rotated(current_rot)
 		current_rot += rotation_step * PI / 180.0
