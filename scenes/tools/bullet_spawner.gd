@@ -1,7 +1,8 @@
 extends Node2D
+class_name BulletSpawner
 
 @export var initial_vector: Vector2 = Vector2(0, 1)
-@export var rotation_step: int = 5
+@export var rotation_step: int = 10
 @export var channeling:int = 5
 @export var cooldown:int = 2
 @export var cadence: float = 1.0
@@ -12,6 +13,7 @@ extends Node2D
 @export var targetted: bool = false
 @export var target_position: Vector2
 
+var active:= true
 var tick := 0.0
 var second_tick := 0.0
 var cadence_tick := 0.0
@@ -30,11 +32,12 @@ var on_cooldown = false
 
 func _ready():
 	add_to_group('spawners')
-	set_arc_vectors()
 	current_cooldown = cooldown
-	pass
 
 func _process(delta: float) -> void:
+	if !active:
+		return
+
 	tick += delta
 	second_tick += delta
 	cadence_tick += delta

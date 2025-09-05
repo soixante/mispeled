@@ -2,20 +2,22 @@ extends Node2D
 
 const ESC_HOLD_THRESHOLD = 2
 
-@onready var player := $player
-
 var input_buffer: String = ""
 var esc_hold_time: float = 0.0
+
+@onready var player = $Player
+@onready var target = $Target
 
 func _ready() -> void:
 	SignalsHandler.player_hit.connect(_on_player_hit)
 	SignalsHandler.wall_hit.connect(_on_wall_hit)
 	SignalsHandler.target_sentence_typed.connect(_on_target_sentence_typed)
+	
+	BulletSpawnerFactory.create_spawner(target, Vector2.ZERO, {})
 
 func _process(delta: float) -> void:
-	for target in get_tree().get_nodes_in_group("aiming_targets"):
-		print(player.global_position)
-		target.set_player_position(player.body_position)
+	for spawners in get_tree().get_nodes_in_group("aimed_spawners"):
+		spawners.set_player_position(player.body_position)
 		
 	if Input.is_key_pressed(KEY_ESCAPE):
 		esc_hold_time += delta
