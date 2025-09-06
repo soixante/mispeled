@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://jhqt7lj0mu7g"]
+
+[ext_resource type="Theme" uid="uid://df5qla6vp52qn" path="res://resources/fonts/primary_font.tres" id="1_0a0c2"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = -78.0
+offset_top = -12.0
+offset_right = 79.0
+offset_bottom = 13.0
+theme = ExtResource("1_0a0c2")
+theme_override_constants/outline_size = 8
+text = "GAME OVER"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
