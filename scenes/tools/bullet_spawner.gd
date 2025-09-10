@@ -29,9 +29,11 @@ var arc_vectors = PackedInt32Array()
 var on_second = true
 var on_cadence = true
 var on_cooldown = false
+var parent: TargetScene
 
 func _ready():
 	add_to_group('spawners')
+	parent = get_parent()
 	current_cooldown = cooldown
 
 func _process(delta: float) -> void:
@@ -87,6 +89,10 @@ func update_spawner():
 		current_rot += rotation_step * PI / 180.0
 	
 func spawn_bullets():
+	if parent.has_method('shoot'):
+		parent.shoot()
+	
+	await get_tree().create_timer(0.3).timeout
 	for i in bullet_count:
 		var bullet = bullet_node.instantiate()
 		var arc_vector = current_vector.rotated(arc_vectors[i] * PI / 180.0)

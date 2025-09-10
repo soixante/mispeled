@@ -1,15 +1,80 @@
-[gd_scene load_steps=5 format=3 uid="uid://q45ru3rngmt7"]
+[gd_scene load_steps=19 format=3 uid="uid://q45ru3rngmt7"]
 
 [ext_resource type="Texture2D" uid="uid://1i5thfvy1iy3" path="res://resources/sprites/targets/target.png" id="1_t2jmu"]
 [ext_resource type="Script" uid="uid://y7djoobueuej" path="res://scenes/targets/target.gd" id="1_ufrq1"]
 [ext_resource type="Theme" uid="uid://df5qla6vp52qn" path="res://resources/fonts/primary_font.tres" id="3_ay0qt"]
+[ext_resource type="Texture2D" uid="uid://d08tcxxj7fq7r" path="res://resources/sprites/targets/poulp_deah1.png" id="3_w5mmk"]
+[ext_resource type="Texture2D" uid="uid://dao4e0k3j58el" path="res://resources/sprites/targets/poulp_deah2.png" id="4_ycod8"]
+[ext_resource type="Texture2D" uid="uid://car34pch4wj2j" path="res://resources/sprites/targets/poulp_deah3.png" id="5_uv7yh"]
+[ext_resource type="Texture2D" uid="uid://bmm50lp1miwvk" path="res://resources/sprites/targets/poulp_deah4.png" id="6_tmxfg"]
+[ext_resource type="Texture2D" uid="uid://dw77ir5jmvsmm" path="res://resources/sprites/targets/poulp_deah5.png" id="7_3iel5"]
+[ext_resource type="Texture2D" uid="uid://dm57srwni4cmo" path="res://resources/sprites/targets/poulp_deah6.png" id="8_0mrtx"]
+[ext_resource type="Texture2D" uid="uid://bymmvpxhaxy02" path="res://resources/sprites/targets/poulp_deah7.png" id="9_r8wut"]
+[ext_resource type="Texture2D" uid="uid://d2fpt7qnkjwie" path="res://resources/sprites/targets/poulp_idle1.png" id="10_bn53r"]
+[ext_resource type="Texture2D" uid="uid://depkow40rw1a4" path="res://resources/sprites/targets/poulp_idle2.png" id="11_heq6q"]
+[ext_resource type="Texture2D" uid="uid://cnvywqkjygqo0" path="res://resources/sprites/targets/poulp_idle3.png" id="12_wr8b7"]
+[ext_resource type="Texture2D" uid="uid://cnctuy7t1xtyt" path="res://resources/sprites/targets/poulp_idle4.png" id="13_j66x2"]
+[ext_resource type="Texture2D" uid="uid://dletuxxaob0t1" path="res://resources/sprites/targets/poulp_idle5.png" id="14_yeu0h"]
+[ext_resource type="Texture2D" uid="uid://bvliw7tliihkf" path="res://resources/sprites/targets/poulp_idle6.png" id="15_om5al"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e1yvt"]
 radius = 8.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_scwm8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_w5mmk")
+}, {
+"duration": 0.7,
+"texture": ExtResource("4_ycod8")
+}, {
+"duration": 1.3,
+"texture": ExtResource("5_uv7yh")
+}, {
+"duration": 0.7,
+"texture": ExtResource("6_tmxfg")
+}, {
+"duration": 0.7,
+"texture": ExtResource("7_3iel5")
+}, {
+"duration": 1.1,
+"texture": ExtResource("8_0mrtx")
+}, {
+"duration": 1.3,
+"texture": ExtResource("9_r8wut")
+}],
+"loop": false,
+"name": &"death",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_bn53r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_heq6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wr8b7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_j66x2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_yeu0h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_om5al")
+}],
+"loop": true,
+"name": &"default",
+"speed": 9.0
+}]
+
 [node name="Target" type="Node2D"]
 script = ExtResource("1_ufrq1")
-sentence = "tu sais que je t'aime, ma chérie"
+sentence = "Tape la phrase pour me tuer"
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
@@ -19,8 +84,15 @@ position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_e1yvt")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
 z_index = 1
 texture = ExtResource("1_t2jmu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+sprite_frames = SubResource("SpriteFrames_scwm8")
+animation = &"death"
+frame = 6
+frame_progress = 1.0
 
 [node name="sentence" type="RichTextLabel" parent="."]
 z_index = 2
