@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b58o0nc3ve4qq"]
+[gd_scene load_steps=5 format=3 uid="uid://b58o0nc3ve4qq"]
 
 [ext_resource type="Script" uid="uid://buk3bky72lej6" path="res://scenes/gui/main_menu.gd" id="1_xbu81"]
+[ext_resource type="PackedScene" uid="uid://dngu70ureq4t3" path="res://scenes/gui/sentence.tscn" id="2_yx4et"]
+[ext_resource type="FontFile" uid="uid://bsw12653drx2d" path="res://resources/fonts/kongtext.ttf" id="3_pgo4t"]
+
+[sub_resource type="Theme" id="Theme_yx4et"]
+resource_local_to_scene = true
+default_font = ExtResource("3_pgo4t")
+default_font_size = 24
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -8,3 +15,12 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_xbu81")
+
+[node name="sentence" parent="." instance=ExtResource("2_yx4et")]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 63.0
+offset_right = 780.0
+offset_bottom = 111.0
+theme = SubResource("Theme_yx4et")
+text = "bbcode [wobble]tutu[/wobble]"

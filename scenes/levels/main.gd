@@ -8,6 +8,7 @@ var esc_hold_time: float = 0.0
 @onready var player = $Player
 @onready var target = $Target
 @onready var hp = $hp
+@onready var audio = $audio
 
 var GameOverScene = preload("res://scenes/atoms/game_over.tscn")
 var _game_over:= false
@@ -64,6 +65,7 @@ func _on_target_sentence_typed(target: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+
 		match event.keycode:
 			KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_SHIFT, KEY_ALT, KEY_CAPSLOCK:
 				return
@@ -78,6 +80,7 @@ func _input(event: InputEvent) -> void:
 				return
 		
 		if event.unicode > 0:
+			audio.play()
 			var character = char(event.unicode)
 			input_buffer += character
 			input_buffer = input_buffer.right(300)
