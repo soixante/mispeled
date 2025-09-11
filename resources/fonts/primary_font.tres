@@ -3,4 +3,6 @@
 [ext_resource type="FontFile" uid="uid://bsw12653drx2d" path="res://resources/fonts/kongtext.ttf" id="1_7qq7q"]
 
 [resource]
+resource_local_to_scene = true
 default_font = ExtResource("1_7qq7q")
+default_font_size = 24

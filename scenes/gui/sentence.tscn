@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dngu70ureq4t3"]
+
+[ext_resource type="Theme" uid="uid://df5qla6vp52qn" path="res://resources/fonts/primary_font.tres" id="1_5r7ps"]
+[ext_resource type="Script" uid="uid://b0b5js2ersnk5" path="res://scenes/gui/sentence.gd" id="2_26wif"]
+
+[node name="sentence" type="RichTextLabel"]
+offset_left = 229.0
+offset_top = 236.0
+offset_right = 976.0
+offset_bottom = 284.0
+theme = ExtResource("1_5r7ps")
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "bbcode [color=green]test[/color]"
+fit_content = true
+script = ExtResource("2_26wif")
