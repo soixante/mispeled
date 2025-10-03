@@ -19,6 +19,8 @@ config/icon="res://icon.svg"
 
 SignalsHandler="*res://scenes/tools/signals_handler.tscn"
 BulletSpawnerFactory="*res://services/BulletSpawnerFactory.gd"
+StringTools="*res://services/string_tools.gd"
+TypingManager="*res://services/typing_manager.gd"
 
 [editor_plugins]
 

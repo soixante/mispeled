@@ -11,6 +11,9 @@ offset_bottom = 284.0
 theme = ExtResource("1_5r7ps")
 theme_override_constants/outline_size = 8
 bbcode_enabled = true
-text = "bbcode [color=green]test[/color]"
+text = "[wobble]bbcode[/wobble] [color=green]test[/color]
+
+[exclamation]exclamation[/exclamation]"
 fit_content = true
+vertical_alignment = 1
 script = ExtResource("2_26wif")
