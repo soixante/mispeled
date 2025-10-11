@@ -1,0 +1,35 @@
+[gd_scene load_steps=9 format=3 uid="uid://dngu70ureq4t3"]
+
+[ext_resource type="Theme" uid="uid://df5qla6vp52qn" path="res://resources/fonts/primary_font.tres" id="1_5r7ps"]
+[ext_resource type="Script" uid="uid://7q6x8r0ljw0g" path="res://scenes/gui/sentence/text_effects/wobble.gd" id="2_21nka"]
+[ext_resource type="Script" uid="uid://b0b5js2ersnk5" path="res://scenes/gui/sentence/sentence.gd" id="2_26wif"]
+[ext_resource type="Script" uid="uid://4i07x4biwug3" path="res://scenes/gui/sentence/text_effects/exclamation.gd" id="3_phfxk"]
+[ext_resource type="Script" uid="uid://bb7fx5xb5hj01" path="res://scenes/gui/sentence/text_effects/ghost.gd" id="4_phfxk"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_rrwnf"]
+script = ExtResource("2_21nka")
+metadata/_custom_type_script = "uid://7q6x8r0ljw0g"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_kqf8d"]
+script = ExtResource("3_phfxk")
+metadata/_custom_type_script = "uid://4i07x4biwug3"
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_mrf6x"]
+script = ExtResource("4_phfxk")
+metadata/_custom_type_script = "uid://bb7fx5xb5hj01"
+
+[node name="sentence" type="RichTextLabel"]
+offset_left = 175.0
+offset_top = 160.0
+offset_right = 976.0
+offset_bottom = 308.0
+theme = ExtResource("1_5r7ps")
+theme_override_constants/outline_size = 8
+bbcode_enabled = true
+text = "[wobble]bbcode[/wobble] [color=green]test[/color]
+[ghost]ca disparait[/ghost]
+[exclamation]exclamation[/exclamation]"
+fit_content = true
+vertical_alignment = 1
+custom_effects = [SubResource("RichTextEffect_rrwnf"), SubResource("RichTextEffect_kqf8d"), SubResource("RichTextEffect_mrf6x")]
+script = ExtResource("2_26wif")

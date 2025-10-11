@@ -1,8 +1,7 @@
-[gd_scene load_steps=19 format=3 uid="uid://q45ru3rngmt7"]
+[gd_scene load_steps=18 format=3 uid="uid://q45ru3rngmt7"]
 
 [ext_resource type="Texture2D" uid="uid://1i5thfvy1iy3" path="res://resources/sprites/targets/target.png" id="1_t2jmu"]
-[ext_resource type="Script" uid="uid://y7djoobueuej" path="res://scenes/targets/target.gd" id="1_ufrq1"]
-[ext_resource type="Theme" uid="uid://df5qla6vp52qn" path="res://resources/fonts/primary_font.tres" id="3_ay0qt"]
+[ext_resource type="Script" uid="uid://y7djoobueuej" path="res://scenes/characters/poulpinou.gd" id="1_ufrq1"]
 [ext_resource type="Texture2D" uid="uid://d08tcxxj7fq7r" path="res://resources/sprites/targets/poulp_deah1.png" id="3_w5mmk"]
 [ext_resource type="Texture2D" uid="uid://dao4e0k3j58el" path="res://resources/sprites/targets/poulp_deah2.png" id="4_ycod8"]
 [ext_resource type="Texture2D" uid="uid://car34pch4wj2j" path="res://resources/sprites/targets/poulp_deah3.png" id="5_uv7yh"]
@@ -72,7 +71,7 @@ animations = [{
 "speed": 9.0
 }]
 
-[node name="Target" type="Node2D"]
+[node name="Poulpinou" type="Node2D"]
 script = ExtResource("1_ufrq1")
 sentence = "Tape la phrase pour me tuer"
 
@@ -93,18 +92,3 @@ sprite_frames = SubResource("SpriteFrames_scwm8")
 animation = &"death"
 frame = 6
 frame_progress = 1.0
-
-[node name="sentence" type="RichTextLabel" parent="."]
-z_index = 2
-offset_left = -137.0
-offset_top = -67.0
-offset_right = 148.0
-offset_bottom = -15.0
-theme = ExtResource("3_ay0qt")
-theme_override_constants/outline_size = 4
-bbcode_enabled = true
-text = "sample text with long lines and àccénts"
-fit_content = true
-scroll_active = false
-horizontal_alignment = 1
-vertical_alignment = 2

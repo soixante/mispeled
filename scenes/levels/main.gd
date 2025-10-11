@@ -65,7 +65,6 @@ func _on_target_sentence_typed(target: Node2D) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.is_pressed() and not event.is_echo():
-
 		match event.keycode:
 			KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_SHIFT, KEY_ALT, KEY_CAPSLOCK:
 				return
@@ -87,12 +86,12 @@ func _input(event: InputEvent) -> void:
 			validate_input_buffer()
 		
 func validate_input_buffer() -> void:
-	for current_target in get_tree().get_nodes_in_group("targets"):
-		var to_match = current_target.get_sentence()
+	for current_sentence in get_tree().get_nodes_in_group("sentences"):
+		var to_match = current_sentence.get_sentence()
 		
 		# full match
 		if (input_buffer.ends_with(to_match)):
-			SignalsHandler.target_sentence_typed.emit(current_target)
+			SignalsHandler.sentence_typed.emit(current_sentence)
 			input_buffer = ""
 		
 		var incomplete_matched := 0
@@ -104,4 +103,3 @@ func validate_input_buffer() -> void:
 				break
 		
 		current_target.highlight_sentence(incomplete_matched)
-		

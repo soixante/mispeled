@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bdyg2vafoxy4" path="res://scenes/levels/main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://dnplkgxmpfpho" path="res://scenes/player/player.tscn" id="2_y0acb"]
-[ext_resource type="PackedScene" uid="uid://q45ru3rngmt7" path="res://scenes/targets/target.tscn" id="3_j4d2a"]
+[ext_resource type="PackedScene" uid="uid://q45ru3rngmt7" path="res://scenes/characters/poulpinou.tscn" id="3_j4d2a"]
 [ext_resource type="PackedScene" uid="uid://cks3h4jqnsrgs" path="res://scenes/atoms/hp.tscn" id="4_j4d2a"]
 [ext_resource type="AudioStream" uid="uid://b5rqqudddkpe0" path="res://resources/sounds/keyboard_key_pressed.wav" id="5_u81e1"]
 
@@ -13,13 +13,11 @@ script = ExtResource("1_1bvp3")
 position = Vector2(582, 523)
 scale = Vector2(2.5, 2.5)
 
-[node name="Target" parent="." instance=ExtResource("3_j4d2a")]
-position = Vector2(572, 161)
-scale = Vector2(2, 2)
-
 [node name="hp" parent="." instance=ExtResource("4_j4d2a")]
 position = Vector2(83, 593)
 scale = Vector2(3, 3)
 
 [node name="audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_u81e1")
+
+[node name="Poulpinou" parent="." instance=ExtResource("3_j4d2a")]
