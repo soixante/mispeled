@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dghxm7q0e2y1j"]
+
+[ext_resource type="Script" uid="uid://bfoqh4mny7fkp" path="res://services/typing_manager/typing_manager.gd" id="1_kqg0e"]
+[ext_resource type="AudioStream" uid="uid://b5rqqudddkpe0" path="res://resources/sounds/keyboard_key_pressed.wav" id="2_trv5j"]
+[ext_resource type="AudioStream" uid="uid://ckeexh0n7tkdd" path="res://resources/sounds/keyboard_backspace.mp3" id="3_trv5j"]
+
+[node name="TypingManager" type="Node2D"]
+script = ExtResource("1_kqg0e")
+
+[node name="key_pressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_trv5j")
+
+[node name="backspace_pressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_trv5j")

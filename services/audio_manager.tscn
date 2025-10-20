@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bw65l1hix3gbl"]
+
+[ext_resource type="AudioStream" uid="uid://b5rqqudddkpe0" path="res://resources/sounds/keyboard_key_pressed.wav" id="1_5xrhs"]
+
+[node name="AudioManager" type="Node2D"]
+
+[node name="key_pressed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_5xrhs")
