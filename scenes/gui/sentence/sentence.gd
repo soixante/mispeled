@@ -39,6 +39,7 @@ func validate(buffer: String) -> bool:
 		highlight_sentence(to_match.length())
 		SignalsHandler.sentence_typed.emit(self)
 		capture = false
+		_destroy()
 		return true
 	#
 	var incomplete_matched := 0
@@ -51,7 +52,10 @@ func validate(buffer: String) -> bool:
 	highlight_sentence(incomplete_matched)
 	return false
 	
-
+func _destroy() -> void:
+	remove_from_group('sentences')
+	queue_free()
+	
 func highlight_sentence(len: int) -> void:
 	if len <= 0:
 		text = cooked

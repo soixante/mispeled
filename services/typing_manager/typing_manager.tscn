@@ -9,6 +9,7 @@ script = ExtResource("1_kqg0e")
 
 [node name="key_pressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_trv5j")
+volume_db = -2.0
 
 [node name="backspace_pressed" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_trv5j")
