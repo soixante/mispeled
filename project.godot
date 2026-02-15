@@ -11,14 +11,16 @@ config_version=5
 [application]
 
 config/name="Mispeled"
-run/main_scene="uid://bt1jtbwtofnko"
+run/main_scene="uid://b78outfuow3vh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SignalsHandler="*res://scenes/tools/signals_handler.tscn"
+SignalsHandler="*res://services/signals_handler.gd"
 BulletSpawnerFactory="*res://services/BulletSpawnerFactory.gd"
+StringTools="*res://services/string_tools.gd"
+TypingManager="*res://services/typing_manager/typing_manager.tscn"
 
 [editor_plugins]
 

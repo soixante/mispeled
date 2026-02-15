@@ -8,6 +8,7 @@ var esc_hold_time: float = 0.0
 @onready var player = $Player
 @onready var target = $Target
 @onready var hp = $hp
+@onready var audio = $audio
 
 var GameOverScene = preload("res://scenes/atoms/game_over.tscn")
 var _game_over:= false
@@ -78,18 +79,19 @@ func _input(event: InputEvent) -> void:
 				return
 		
 		if event.unicode > 0:
+			audio.play()
 			var character = char(event.unicode)
 			input_buffer += character
 			input_buffer = input_buffer.right(300)
 			validate_input_buffer()
 		
 func validate_input_buffer() -> void:
-	for current_target in get_tree().get_nodes_in_group("targets"):
-		var to_match = current_target.get_sentence()
+	for current_sentence in get_tree().get_nodes_in_group("sentences"):
+		var to_match = current_sentence.get_sentence()
 		
 		# full match
 		if (input_buffer.ends_with(to_match)):
-			SignalsHandler.target_sentence_typed.emit(current_target)
+			SignalsHandler.sentence_typed.emit(current_sentence)
 			input_buffer = ""
 		
 		var incomplete_matched := 0
@@ -101,4 +103,3 @@ func validate_input_buffer() -> void:
 				break
 		
 		current_target.highlight_sentence(incomplete_matched)
-		
